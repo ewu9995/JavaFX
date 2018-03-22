@@ -15,27 +15,33 @@ public class HelloWorld extends Application {
         launch(args);
     }
     
-  
+
+ public int score = 0;
     @Override
     public void start(Stage primaryStage) {
-       
+    	
     	primaryStage.setTitle("Hello World!");
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
+        Label label = new Label("Score: 0");
+        
+        
         btn.setOnAction(new EventHandler<ActionEvent>() {
-        	
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Hello World!");
-               
+                score ++;
+                label.setText("Score: "+ score);
+                System.out.println(score);
             }
-        });
+            
+        }
+        );
         
-      
-       Label label = new Label("Score Counter");
-       label.setText("Score:");
-       label.setTranslateX(10);
-       label.setTranslateY(20);
+     
+       
+        label.setTranslateX(-30);
+        label.setTranslateY(-50);
                 
         StackPane root = new StackPane();
         root.getChildren().add(btn);
@@ -43,4 +49,7 @@ public class HelloWorld extends Application {
         primaryStage.setScene(new Scene(root, 400, 250));
         primaryStage.show();
     }
+
+
+
 }
